@@ -29,10 +29,10 @@ var playerData ={
 			cycle:true,
 			frames:
 			[
-				{width:85, height:135, startX:1650, startY:0},
-				{width:85, height:135, startX:1735, startY:0},
-				{width:85, height:135, startX:1820, startY:0},
-				{width:85, height:135, startX:1905, startY:0}
+				{width:85, height:127, startX:1650, startY:0},
+				{width:85, height:127, startX:1735, startY:0},
+				{width:85, height:127, startX:1820, startY:0},
+				{width:85, height:127, startX:1905, startY:0}
 				
 				
 			]
@@ -40,21 +40,21 @@ var playerData ={
 		//The walwidth:128, height:128,
 		walk:
 		{
-			fps:1,
+			fps:15,
 			cycle:true,
 			frames:
 			[
-				{width:85, height:150, startX:850, startY:0},
-				{width:85, height:150, startX:935, startY:0},
-				{width:85, height:150, startX:1020, startY:0},
-				{width:85, height:150, startX:1105, startY:0},
-				{width:85, height:150, startX:1190, startY:0}
+				{width:85, height:129, startX:850, startY:0},
+				{width:85, height:129, startX:935, startY:0},
+				{width:85, height:129, startX:1020, startY:0},
+				{width:85, height:129, startX:1105, startY:0},
+				{width:85, height:129, startX:1190, startY:0}
 			]
 		},
 		//The jump animation 
 		jump:
 		{
-			fps:15,
+			fps:6,
 			cycle:false,
 			frames:
 			[
