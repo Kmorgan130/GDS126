@@ -97,6 +97,18 @@ var playerData ={
 				{width:128, height:128, startX:1152, startY:0}
 				
 			]
+		},
+		bullet:
+		{
+			fps:0,
+			cycle:false,
+			//width:300,
+			frames:
+			[
+				
+				{width:64, height:64, startX:0, startY:0}
+				
+			]
 		}
 	}
 		
