@@ -29,8 +29,8 @@ var playerData ={
 			cycle:true,
 			frames:
 			[
-				{width:128, height:128, startX:384, startY:0},
-				{width:128, height:128, startX:512, startY:0}
+				{width:256, height:250, startX:256, startY:0},
+				{width:256, height:250, startX:512, startY:0}
 				
 				
 			]
@@ -38,28 +38,33 @@ var playerData ={
 		//The walwidth:128, height:128,
 		walk:
 		{
-			fps:15,
+			fps:10,
 			cycle:true,
 			frames:
 			[
-				{width:128, height:128, startX:850, startY:0},
-				{width:128, height:128, startX:935, startY:0},
-				{width:128, height:128, startX:1020, startY:0},
-				{width:128, height:128, startX:1105, startY:0},
-				{width:128, height:128, startX:1190, startY:0}
+				{width:256, height:250, startX:1536, startY:0},
+				{width:256, height:250, startX:1792, startY:0},
+				{width:256, height:250, startX:2048, startY:0},
+				{width:256, height:250, startX:2304, startY:0},
+				{width:256, height:250, startX:2560, startY:0},
+				{width:256, height:250, startX:2816, startY:0},
+				{width:256, height:250, startX:3072, startY:0},
+				{width:256, height:250, startX:3328, startY:0},
+				{width:256, height:250, startX:3584, startY:0},
+				{width:256, height:250, startX:3840, startY:0}
 			]
 		},
 		//The jump animation 
 		jump:
 		{
-			fps:6,
+			fps:3,
 			cycle:false,
 			frames:
 			[
-				{width:128, height:128, startX:386, startY:0},
-				{width:128, height:128, startX:512, startY:0},
-				{width:128, height:128, startX:640, startY:0},
-				{width:128, height:128, startX:768, startY:0}
+			
+				{width:256, height:256, startX:768, startY:0},
+				{width:256, height:256, startX:1024, startY:0},
+				{width:256, height:256, startX:1280, startY:0}
 				
 			]
 		},
@@ -70,7 +75,7 @@ var playerData ={
 			cycle:true,
 			frames:
 			[
-				{width:128, height:128, startX:256, startY:0}
+				{width:256, height:250, startX:0, startY:0}
 				
 			]
 		},
@@ -82,21 +87,22 @@ var playerData ={
 			//width:300,
 			frames:
 			[
-				{width:128, height:128, startX:2304, startY:0}
+				{width:256, height:250, startX:4096, startY:0}
 				
 				
 			]
 		},
 		bullet:
 		{
-			fps:0,
+			fps:5,
 			cycle:false,
 			//width:300,
 			frames:
 			[
 				
-				{width:128, height:128, startX:0, startY:0},
-				{width:128, height:128, startX:128, startY:0}
+				{width:256, height:256, startX:4096, startY:0},
+				{width:256, height:256, startX:4352, startY:0},
+				{width:256, height:256, startX:4608, startY:0}
 				
 			]
 		}
