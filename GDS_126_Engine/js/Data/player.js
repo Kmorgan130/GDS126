@@ -25,14 +25,12 @@ var playerData ={
 		//The idle animation 
     	idle:
 		{
-			fps:15,
+			fps:19,
 			cycle:true,
 			frames:
 			[
-				{width:85, height:127, startX:1650, startY:0},
-				{width:85, height:127, startX:1735, startY:0},
-				{width:85, height:127, startX:1820, startY:0},
-				{width:85, height:127, startX:1905, startY:0}
+				{width:64, height:62, startX:64, startY:0},
+				{width:64, height:62, startX:128, startY:0}
 				
 				
 			]
@@ -44,11 +42,11 @@ var playerData ={
 			cycle:true,
 			frames:
 			[
-				{width:85, height:129, startX:850, startY:0},
-				{width:85, height:129, startX:935, startY:0},
-				{width:85, height:129, startX:1020, startY:0},
-				{width:85, height:129, startX:1105, startY:0},
-				{width:85, height:129, startX:1190, startY:0}
+				{width:64, height:64, startX:850, startY:0},
+				{width:64, height:64, startX:935, startY:0},
+				{width:64, height:64, startX:1020, startY:0},
+				{width:64, height:64, startX:1105, startY:0},
+				{width:64, height:64, startX:1190, startY:0}
 			]
 		},
 		//The jump animation 
