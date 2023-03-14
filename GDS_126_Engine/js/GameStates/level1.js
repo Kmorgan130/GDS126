@@ -9,8 +9,9 @@ var stage = new GameObject({width:canvas.width, height:canvas.height});
 var wiz = new GameObject({width:128, height:128, spriteData:playerData}).makeSprite(playerData)
 wiz.force=1
 
-//var train = new GameObject({x:-200, vx})
-//train.img.src='images/train.png'
+var train = new GameObject({x:-200, vx:20, width:720*2, height:128*2, y:canvas.height-34
+})
+train.img.src='images/train.png'
 
 //The ground
 var ground = new GameObject({width:canvas.width*10, x:canvas.width*10/2,height:64,y:canvas.height-32, color:"green"})
@@ -23,7 +24,7 @@ var plat = new GameObject({width:256, height:64,y:canvas.height-200, color:"gree
 var level = new GameObject({x:0,y:0});
 ground.world = level;
 plat.world = level;
-//train.work = level;
+train.work = level;
 
 //Cave foreground Tile Grid
 var cave = new Grid(caveData, {world:level, x:1024, tileHeight:64, tileWidth:64});
@@ -276,6 +277,16 @@ gameStates[`level1`] = function()
 	rbg.drawStaticImage([-rbg.width,0]);
 	rbg.drawStaticImage([rbg.width,0]);
 
+//Renders sprites group
+	sprites.play().render(`drawSprite`);
+	
+	train.move();
+	if(train.x> 2000)
+	{
+		train.x = -500
+	}
+	train.drawStaticImage();
+
 	//renders the midground
 	bg.drawStaticImage([0,0]);
 	
@@ -291,8 +302,8 @@ gameStates[`level1`] = function()
 	context.lineTo(canvas.width,wiz.bottom.y)
 	context.stroke();*/
 
-	//Renders sprites group
-	sprites.play().render(`drawSprite`);
+	
+
 
 	//renders player
 	wiz.play(function(){return}).drawSprite()
@@ -318,12 +329,7 @@ gameStates[`level1`] = function()
 	//Renders front of cave
 	front.play().render(`drawSprite`);
 
-	//train.move();
-	//if(train.x> 2000)
-	//{
-	//	train.x = -500
-	//}
-	//train.drawStaticImage();
+	
 	
 
 }
