@@ -283,7 +283,7 @@ gameStates[`level1`] = function()
 	train.move();
 	if(train.x> 2000)
 	{
-		train.x = -500
+		train.x = -1000
 	}
 	train.drawStaticImage();
 
