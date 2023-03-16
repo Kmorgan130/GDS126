@@ -92,7 +92,7 @@ var playerData ={
 				
 			]
 		},
-		bullet:
+		bullets:
 		{
 			fps:5,
 			cycle:false,

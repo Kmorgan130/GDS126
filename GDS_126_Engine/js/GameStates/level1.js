@@ -19,6 +19,7 @@ ground.img.src=`images/ground.png`
 
 //A platform
 var plat = new GameObject({width:256, height:64,y:canvas.height-200, color:"green"})
+plat.img.src='images/platform.png'
 
 //A level object when it is moved other objects move with it.
 var level = new GameObject({x:0,y:0});
@@ -92,7 +93,7 @@ for(let i=0; i<100; i++)
 	//bullets[i].img.src="images/bullet.jpg"
 	bullets[i].makeSprite(playerData)
 	bullets[i].y=-10000
-	bullets[i].changeState(`walk`) //change walk to bullet
+	bullets[i].changeState(`bullets`) //change walk to bullet
 	
 }
 
@@ -166,8 +167,8 @@ gameStates[`level1`] = function()
 
 			bullets[currentBullet].vx = 5*wiz.dir;
 			bullets[currentBullet].world = level;
-			bullets[currentBullet].x = wiz.x-level.x + (wiz.dir * 50) ; //x axis bullet
-			bullets[currentBullet].y = wiz.y + 0; //y axis bullet
+			bullets[currentBullet].x = wiz.x-level.x + (wiz.dir * 80) ; //x axis bullet
+			bullets[currentBullet].y = wiz.y -20; //y axis bullet
 			bullets[currentBullet].dir = wiz.dir;
 			
 			sounds.play(`Attack`,1)
@@ -295,6 +296,9 @@ gameStates[`level1`] = function()
 
 	//renders the objects in the rect group
 	rects.render(`drawRect`, [0,0,100,100])
+	
+	plat.drawStaticImage();
+
 	
 	/*----Used for debugging----*/
 	/*context.beginPath()
