@@ -13,9 +13,12 @@ var player;
 	
 	//Instantiate the Player
 	player = new Player();
+
+	player.vx =2;
+	player.vy =2;
 	
 	//Set the Animation Timer
-	timer = setInterval(animate, 1000);
+	timer = setInterval(animate, interval);
 
 function animate()
 {
@@ -24,18 +27,33 @@ function animate()
 	
 	//Move the Player
 	player.x += player.vx;
+
 	if(player.x < player.width/2)// this the bounderies
-	//player.x=o + player.width/2
-	//player.x =player.width/2
 	{
-		player.vx=0
-	}//1   // dont need 0
-	//{player.vx=0}//2
+		player.x = player.width/2
+		player.vx = -player.vx;
+	}
+	if(player.x > canvas.width - player.width/2)// this the bounderies
+	
+	{
+		player.x = canvas.width - player.width/2
+		player.vx = - player.vx;
+	}
 
+	//height
+	player.y += player.vy;
 
-	//player.x = -player.vx
-
-	//if(player.x > - canvas.width/2) this is for the looping to the other wall
+	if(player.y < player.height/2)// this the bounderies
+	{
+		player.y = player.height/2
+		player.vy = -player.vy;
+	}
+	if(player.y > canvas.height - player.height/2)// this the bounderies
+	
+	{
+		player.y = canvas.height - player.height/2
+		player.vy = - player.vy;
+	}
 	//Update the Screen
 	player.draw();
 }
