@@ -32,12 +32,14 @@ function animate()
 	{
 		player.x = player.width/2
 		player.vx = -player.vx;
+		this.color = "red";
 	}
 	if(player.x > canvas.width - player.width/2)// this the bounderies
 	
 	{
 		player.x = canvas.width - player.width/2
 		player.vx = - player.vx;
+		this.color = "green";
 	}
 
 	//height
@@ -47,12 +49,13 @@ function animate()
 	{
 		player.y = player.height/2
 		player.vy = -player.vy;
+		this.color = "yelow";
 	}
 	if(player.y > canvas.height - player.height/2)// this the bounderies
-	
 	{
 		player.y = canvas.height - player.height/2
 		player.vy = - player.vy;
+		this.color = "pink";
 	}
 	//Update the Screen
 	player.draw();

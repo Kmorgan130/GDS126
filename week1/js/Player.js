@@ -14,7 +14,7 @@ function Player()
 	this.vy = 0;
 	
 	//player's color
-	this.color = "#ff0000";
+	this.color = "blue";
 	
 	//This draws the player to the screen
 	this.draw = function()
