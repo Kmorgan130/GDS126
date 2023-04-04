@@ -14,8 +14,8 @@ var player;
 	//Instantiate the Player
 	player = new Player();
 
-	player.vx =2;
-	player.vy =2;
+	//player.vx =2;
+	//player.vy =2;
 	
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
