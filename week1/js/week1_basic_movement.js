@@ -14,7 +14,7 @@ var player;
 	//Instantiate the Player
 	player = new Player();
 
-	//player.vx =2;
+	player.vx =2;
 	//player.vy =2;
 	
 	//Set the Animation Timer
@@ -30,14 +30,14 @@ function animate()
 
 	if(player.x < player.width/2)// this the bounderies
 	{
-		player.x = player.width/2
-		player.vx = -player.vx;
+		//player.x = player.width/2
+		//player.vx = -player.vx;
 	}
-	if(player.x > canvas.width - player.width/2)// this the bounderies
+	//if(player.x > canvas.width - player.width/2)// this the bounderies
 	
 	{
-		player.x = canvas.width - player.width/2
-		player.vx = - player.vx;
+		//player.x = canvas.width - player.width/2
+		//player.vx = - player.vx;
 	}
 
 	//height
