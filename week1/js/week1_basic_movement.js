@@ -14,7 +14,7 @@ var player;
 	//Instantiate the Player
 	player = new Player();
 
-	player.vx =2;
+	player.vx =2; 
 	player.vy =2;
 	
 	//Set the Animation Timer
@@ -29,17 +29,18 @@ function animate()
 	player.x += player.vx;
 
 	if(player.x < player.width/2)// this the bounderies
+	
 	{
 		player.x = player.width/2
 		player.vx = -player.vx;
-		this.color = "red";
+		player.color = "red";
 	}
 	if(player.x > canvas.width - player.width/2)// this the bounderies
 	
 	{
 		player.x = canvas.width - player.width/2
 		player.vx = - player.vx;
-		this.color = "green";
+		player.color = "green";
 	}
 
 	//height
@@ -49,13 +50,13 @@ function animate()
 	{
 		player.y = player.height/2
 		player.vy = -player.vy;
-		this.color = "yelow";
+		player.color = "yellow";
 	}
 	if(player.y > canvas.height - player.height/2)// this the bounderies
 	{
 		player.y = canvas.height - player.height/2
 		player.vy = - player.vy;
-		this.color = "pink";
+		player.color = "pink";
 	}
 	//Update the Screen
 	player.draw();
