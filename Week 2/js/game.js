@@ -13,6 +13,8 @@ var player;
 	
 	//Instantiate the Player
 	player = new GameObject();
+	player.x = 100;
+	player.h + 100;
 
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
