@@ -14,7 +14,6 @@ var player;
 	//Instantiate the Player
 	player = new GameObject();
 	player.x = 100;
-	player.h + 100;
 
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
@@ -26,15 +25,32 @@ function animate()
 	
 	
 	//Move the Player to the right
-	if(d)
+	if(w)
 	{
-		console.log("Moving Right");
-		player.x += 2;
+		console.log("Moving Up");
+		player.y += -2;
 	}
-	if(a)
+	if(s)
 	{
-		console.log("Moving Left");
-		player.x += -2;
+		console.log("Moving Down");
+		player.y += 2;
+	}
+
+	//boarders
+
+	player.y += player.vy;
+
+	if(player.y < player.height/2)// this the bounderies
+	{
+		player.y = player.height/2
+		player.vy = -player.vy;
+		player.color = "yellow";
+	}
+	if(player.y > canvas.height - player.height/2)// this the bounderies
+	{
+		player.y = canvas.height - player.height/2
+		player.vy = - player.vy;
+		player.color = "pink";
 	}
 	
 	//Update the Screen
