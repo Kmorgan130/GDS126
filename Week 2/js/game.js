@@ -19,8 +19,8 @@ var ball;
 	player.width = 35;
 
 	ball = new GameObject();
-	ball.vx =2; 
-	ball.vy =2;
+	ball.vx =-2; 
+	ball.vy =0;
 	ball.width = 45;
 	ball.height = ball.width;
 
@@ -97,7 +97,7 @@ function animate()
 		ball.color = "pink";
 	}
 
-	//if(ball.hitTestObject(player))
+	//if(ball.hitTestObject(player)){}
 
 
 	//Update the Screen
