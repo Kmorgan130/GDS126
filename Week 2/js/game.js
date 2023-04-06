@@ -96,7 +96,10 @@ function animate()
 		ball.vy = - ball.vy;
 		ball.color = "pink";
 	}
-	
+
+	//if(ball.hitTestObject(player))
+
+
 	//Update the Screen
 	player.drawRect();
 	ball.drawCircle();
