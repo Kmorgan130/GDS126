@@ -7,6 +7,7 @@ var timer;
 var interval = 1000/60;
 var player;
 var ball;
+var prevX;
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -67,7 +68,6 @@ function animate()
 	ball.x += ball.vx;
 
 	if(ball.x < ball.width/2)// this the bounderies
-	
 	{
 		ball.x = ball.width/2
 		ball.vx = -ball.vx;
@@ -80,7 +80,8 @@ function animate()
 		ball.vx = - ball.vx;
 		ball.color = "green";
 	}
-
+	
+	//
 	//height
 	ball.y += ball.vy;
 
@@ -96,8 +97,26 @@ function animate()
 		ball.vy = - ball.vy;
 		ball.color = "pink";
 	}
+//collid
 
-	//if(ball.hitTestObject(player)){}
+
+if(ball.hitTestObject(player))
+{
+	//draw bounding boxes
+	context.strokeRect(ball.x- ball.width/2, ball.y - ball.height/2, ball.width, ball.height)
+	context.strokeRect(player.x- player.width/2, player.y - player.height/2, player.width, player.height)
+}
+
+	if(ball.hitTestObject(player))
+	{
+		player.x = prevX;
+		console.log("colliding");
+		
+	}
+	else
+	{
+	prevX = player.x;
+	}
 
 
 	//Update the Screen
