@@ -68,7 +68,7 @@ function animate()
 	//ball function
 	ball.x += ball.vx;
 
-	
+
 	if(ball.x + ball.width + 10 < ball.width/2)// this the bounderies
 	{
 		ball.x = canvas.width/2
@@ -77,8 +77,6 @@ function animate()
 	
 	}
 
-
-	
 	if(ball.x > canvas.width - ball.width/2)// this the bounderies
 	
 	{
