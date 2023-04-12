@@ -116,7 +116,15 @@ if(ball.hitTestObject(player))
 		ball.x = player.x + player.width/2 + ball.width/2
 		ball.vx = -ball.vx
 		console.log("colliding");
+
+		if(ball.y < player.y - player.height/6)
+        {
+          ball.vx = 5;
+          ball.vy = -5;
+        }
 	}
+//
+	
 	
 
 
