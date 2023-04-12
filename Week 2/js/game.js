@@ -15,14 +15,15 @@ var prevX;
 	
 	//Instantiate the Player
 	player = new GameObject();
-	player.x = 100;
+	player.x = 20;
 	player.height = 150;
-	player.width = 35;
+	player.width = 15;
+	
 
 	ball = new GameObject();
-	ball.vx =-2; 
+	ball.vx =-5; 
 	ball.vy =0;
-	ball.width = 45;
+	ball.width = 35;
 	ball.height = ball.width;
 
 	//Set the Animation Timer
@@ -38,12 +39,12 @@ function animate()
 	if(w)
 	{
 		console.log("Moving Up");
-		player.y += -2;
+		player.y += -5;
 	}
 	if(s)
 	{
 		console.log("Moving Down");
-		player.y += 2;
+		player.y += 5;
 	}
 
 	//boarders
@@ -67,12 +68,17 @@ function animate()
 	//ball function
 	ball.x += ball.vx;
 
-	if(ball.x < ball.width/2)// this the bounderies
+	
+	if(ball.x + ball.width + 10 < ball.width/2)// this the bounderies
 	{
-		ball.x = ball.width/2
-		ball.vx = -ball.vx;
-		ball.color = "red";
+		ball.x = canvas.width/2
+		ball.y = canvas.height/2
+		ball.vx = ball.vx
+	
 	}
+
+
+	
 	if(ball.x > canvas.width - ball.width/2)// this the bounderies
 	
 	{
@@ -109,14 +115,11 @@ if(ball.hitTestObject(player))
 
 	if(ball.hitTestObject(player))
 	{
-		player.x = prevX;
+		ball.x = player.x + player.width/2 + ball.width/2
+		ball.vx = -ball.vx
 		console.log("colliding");
-		
 	}
-	else
-	{
-	prevX = player.x;
-	}
+	
 
 
 	//Update the Screen
