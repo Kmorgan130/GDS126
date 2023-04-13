@@ -182,7 +182,7 @@ if(ball.hitTestObject(opponent))
 
 	context.fillStyle = "blue"
     context.font = "15px Georgia";
-    context.fillText(p1Wins, canvas.width/2 - 70, 70);
+    context.fillText(p1Wins, canvas.width/2 - 40, 70);
 
 	context.fillStyle = "blue"
     context.font = "15px Georgia";
@@ -190,11 +190,15 @@ if(ball.hitTestObject(opponent))
 
 	context.fillStyle = "blue"
     context.font = "15px Georgia";
-    context.fillText(p2Wins, canvas.width/2 + 10, 70);
+    context.fillText(p2Wins, canvas.width/2 - 10, 70);
 //
 	context.fillStyle = "blue"
     context.font = "15px Georgia";
     context.fillText("|", canvas.width/2 - 25, 50);
+
+	context.fillStyle = "blue"
+    context.font = "15px Georgia";
+    context.fillText("-", canvas.width/2 - 24, 70);
 //
 	
 	
