@@ -9,6 +9,8 @@ var player;
 var ball;
 var prevX;
 var opponent;
+var p1Wins = 0;
+var p2Wins = 0;
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -20,12 +22,10 @@ var opponent;
 	player.height = 150;
 	player.width = 15;
 // player2
-opponent = new GameObject();
-opponent.x = 1010;
-opponent.height = 150;
-opponent.width = 15;
-
-	
+	opponent = new GameObject();
+	opponent.x = 1010;
+	opponent.height = 150;
+	opponent.width = 15;
 
 	ball = new GameObject();
 	ball.vx =-5; 
@@ -107,7 +107,8 @@ if(opponent.y > canvas.height - opponent.height/2)// this the bounderies
 		ball.x = canvas.width/2
 		ball.y = canvas.height/2
 		ball.vx = ball.vx
-	
+		//
+		//p1Wins
 	}
 
 	if(ball.x - ball.width > canvas.width)// this the bounderies
@@ -118,6 +119,8 @@ if(opponent.y > canvas.height - opponent.height/2)// this the bounderies
 		ball.y = canvas.height/2
 		//ball.vx = - ball.vx;
 		ball.vx = ball.vx
+		//
+		//p2Wins
 	}
 	
 	//
@@ -181,5 +184,7 @@ if(ball.hitTestObject(opponent))
 	player.drawRect();
 	ball.drawCircle();
 	opponent.drawRect();
+	p1Wins.fillText("Player 1", 10, 50);
+	p2Wins.fillText("Player 2");
 }
 
