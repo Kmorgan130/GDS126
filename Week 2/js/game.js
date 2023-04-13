@@ -8,6 +8,7 @@ var interval = 1000/60;
 var player;
 var ball;
 var prevX;
+var opponent;
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -15,9 +16,15 @@ var prevX;
 	
 	//Instantiate the Player
 	player = new GameObject();
-	player.x = 20;
+	player.x = 15;
 	player.height = 150;
 	player.width = 15;
+// player2
+opponent = new GameObject();
+opponent.x = 1010;
+opponent.height = 150;
+opponent.width = 15;
+
 	
 
 	ball = new GameObject();
@@ -46,9 +53,21 @@ function animate()
 		console.log("Moving Down");
 		player.y += 5;
 	}
+// opponent
+
+	if(up)
+	{
+		console.log("Moving Up");
+		opponent.y += -5;
+	}
+	if(down)
+	{
+		console.log("Moving Down");
+		opponent.y += 5;
+	}
 
 	//boarders
-
+// player1
 	player.y += player.vy;
 
 	if(player.y < player.height/2)// this the bounderies
@@ -63,7 +82,21 @@ function animate()
 		player.vy = - player.vy;
 		player.color = "pink";
 	}
+// player2
+opponent.y += opponent.vy;
 
+if(opponent.y < opponent.height/2)// this the bounderies
+{
+	opponent.y = opponent.height/2
+	opponent.vy = -opponent.vy;
+	opponent.color = "yellow";
+}
+if(opponent.y > canvas.height - opponent.height/2)// this the bounderies
+{
+	opponent.y = canvas.height - opponent.height/2
+	opponent.vy = - opponent.vy;
+	opponent.color = "pink";
+}
 
 	//ball function
 	ball.x += ball.vx;
@@ -77,12 +110,14 @@ function animate()
 	
 	}
 
-	if(ball.x > canvas.width - ball.width/2)// this the bounderies
+	if(ball.x - ball.width > canvas.width)// this the bounderies
 	
 	{
-		ball.x = canvas.width - ball.width/2
-		ball.vx = - ball.vx;
-		ball.color = "green";
+		//ball.x = canvas.width - ball.width/2
+		ball.x = canvas.width/2
+		ball.y = canvas.height/2
+		//ball.vx = - ball.vx;
+		ball.vx = ball.vx
 	}
 	
 	//
@@ -123,6 +158,20 @@ if(ball.hitTestObject(player))
           ball.vy = -5;
         }
 	}
+// opponent
+
+if(ball.hitTestObject(opponent))
+	{
+		ball.x = opponent.x + opponent.width/2 - ball.width
+		ball.vx = -ball.vx
+		console.log("colliding");
+
+		if(ball.y < opponent.y - opponent.height/6)
+        {
+          ball.vy = -5;
+        }
+	}
+
 //
 	
 	
@@ -131,5 +180,6 @@ if(ball.hitTestObject(player))
 	//Update the Screen
 	player.drawRect();
 	ball.drawCircle();
+	opponent.drawRect();
 }
 

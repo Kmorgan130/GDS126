@@ -3,6 +3,8 @@ var a = false;
 var d = false;
 var w = false;
 var s= false;
+var up = false;
+var down = false;
 
 //Add Event Listeners
 document.addEventListener("keydown", press);
@@ -30,6 +32,14 @@ function press(e)
 	{
 		s = true;
 	}
+	if(e.keyCode == 38)
+	{
+		up = true;
+	}
+	if(e.keyCode == 40)
+	{
+		down = true;
+	}
 }
 
 function release(e)
@@ -52,5 +62,13 @@ function release(e)
 	if(e.keyCode == 83)
 	{
 		s = false;
+	}
+	if(e.keyCode == 38)
+	{
+		up = false;
+	}
+	if(e.keyCode == 40)
+	{
+		down = false;
 	}
 }
