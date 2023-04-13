@@ -109,6 +109,7 @@ if(opponent.y > canvas.height - opponent.height/2)// this the bounderies
 		ball.vx = ball.vx
 		//
 		//p1Wins
+		p2Wins = p2Wins + 1
 	}
 
 	if(ball.x - ball.width > canvas.width)// this the bounderies
@@ -121,6 +122,7 @@ if(opponent.y > canvas.height - opponent.height/2)// this the bounderies
 		ball.vx = ball.vx
 		//
 		//p2Wins
+		p1Wins = p1Wins + 1
 	}
 	
 	//
@@ -174,7 +176,25 @@ if(ball.hitTestObject(opponent))
           ball.vy = -5;
         }
 	}
+	context.fillStyle = "blue"
+    context.font = "15px Georgia";
+    context.fillText("Player 1", canvas.width/2 - 100, 50);
 
+	context.fillStyle = "blue"
+    context.font = "15px Georgia";
+    context.fillText(p1Wins, canvas.width/2 - 70, 70);
+
+	context.fillStyle = "blue"
+    context.font = "15px Georgia";
+    context.fillText("Player 2", canvas.width/2 - 0, 50);
+
+	context.fillStyle = "blue"
+    context.font = "15px Georgia";
+    context.fillText(p2Wins, canvas.width/2 + 10, 70);
+//
+	context.fillStyle = "blue"
+    context.font = "15px Georgia";
+    context.fillText("|", canvas.width/2 - 25, 50);
 //
 	
 	
@@ -184,7 +204,7 @@ if(ball.hitTestObject(opponent))
 	player.drawRect();
 	ball.drawCircle();
 	opponent.drawRect();
-	p1Wins.fillText("Player 1", 10, 50);
-	p2Wins.fillText("Player 2");
+	p1Wins.fillText();
+	p2Wins.fillText();
 }
 
