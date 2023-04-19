@@ -12,6 +12,7 @@ var opponent;
 var p1Wins = 0;
 var p2Wins = 0;
 
+
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
@@ -201,7 +202,15 @@ if(ball.hitTestObject(opponent))
     context.fillText("-", canvas.width/2 - 24, 70);
 //
 	
-	
+	context.save();
+	context.strokeStyle = "yellow";
+	context.beginPath();
+	context.moveTo(canvas.width/2, 0);
+	context.lineTo(canvas.width/2, 800);
+	context.closePath();
+	context.lineWidth = 3;
+	context.stroke();
+	context.restore();
 
 
 	//Update the Screen
@@ -210,5 +219,6 @@ if(ball.hitTestObject(opponent))
 	opponent.drawRect();
 	p1Wins.fillText();
 	p2Wins.fillText();
+	line.drawLine();
 }
 
