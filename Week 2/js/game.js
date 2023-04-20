@@ -179,27 +179,27 @@ if(ball.hitTestObject(opponent))
 	}
 	context.fillStyle = "blue"
     context.font = "15px Georgia";
-    context.fillText("Player 1", canvas.width/2 - 100, 50);
+    context.fillText("Player 1", canvas.width/2 - 70, 50);
 
 	context.fillStyle = "blue"
     context.font = "15px Georgia";
-    context.fillText(p1Wins, canvas.width/2 - 40, 70);
+    context.fillText(p1Wins, canvas.width/2 - 27, 70);
 
 	context.fillStyle = "blue"
     context.font = "15px Georgia";
-    context.fillText("Player 2", canvas.width/2 - 0, 50);
+    context.fillText("Player 2", canvas.width/2 + 20, 50);
 
 	context.fillStyle = "blue"
     context.font = "15px Georgia";
-    context.fillText(p2Wins, canvas.width/2 - 10, 70);
+    context.fillText(p2Wins, canvas.width/2 + 15, 70);
 //
 	context.fillStyle = "blue"
     context.font = "15px Georgia";
-    context.fillText("|", canvas.width/2 - 25, 50);
+    context.fillText("|", canvas.width/2 - 2, 50);
 
 	context.fillStyle = "blue"
     context.font = "15px Georgia";
-    context.fillText("-", canvas.width/2 - 24, 70);
+    context.fillText("-", canvas.width/2 - 3, 70);
 //
 	
 	context.save();
@@ -208,7 +208,7 @@ if(ball.hitTestObject(opponent))
 	context.moveTo(canvas.width/2, 0);
 	context.lineTo(canvas.width/2, 800);
 	context.closePath();
-	context.lineWidth = 3;
+	context.lineWidth = 1;
 	context.stroke();
 	context.restore();
 
