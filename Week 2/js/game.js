@@ -11,11 +11,13 @@ var prevX;
 var opponent;
 var p1Wins = 0;
 var p2Wins = 0;
-
+//ric
+var img=document.getElementById("ric");
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
+	
 	
 	//Instantiate the Player
 	player = new GameObject();
@@ -160,9 +162,10 @@ if(ball.hitTestObject(player))
 
 		if(ball.y < player.y - player.height/6)
         {
-          ball.vx = 5;
+          
           ball.vy = -5;
         }
+		
 	}
 // opponent
 
@@ -212,13 +215,17 @@ if(ball.hitTestObject(opponent))
 	context.stroke();
 	context.restore();
 
+// draw Ric
+	context.drawImage(ric, ball.x - ball.width/2, ball.y - ball.height/2, ball.width, ball.height);
+
 
 	//Update the Screen
 	player.drawRect();
-	ball.drawCircle();
+	//ball.drawCircle();
 	opponent.drawRect();
 	p1Wins.fillText();
 	p2Wins.fillText();
 	line.drawLine();
+	ric.drawImage();
 }
 
