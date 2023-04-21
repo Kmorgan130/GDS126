@@ -9,8 +9,8 @@ var p1Wins = 0;
 var ball;
 
 //---------------Set Friction and Gravity-----------------
-var frictionX = .85;	
-var frictionY = .97;
+var frictionX = .65;	
+var frictionY = .65;
 var gravity = 1;
 //--------------------------------------------------------
 
@@ -18,33 +18,84 @@ var gravity = 1;
 
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
-
-	
-	
+//
 	player = new GameObject();
 	player.x = canvas.width/2;
 	player.y = canvas.height - 50;
 	player.height = 40;
 	player.width = 250;
 	player.color= "#00ffff"
-	//player.force = 2;
-
+	player.force = 2;
+//
 	ball = new GameObject();
 	ball.x = canvas.width/2;
 	ball.y = canvas.height/2;
 	radius: 40;
 	ball.color = "#ff00ff"
+	//ball.vy =+ gravity;
 //
-	
-	
 	timer = setInterval(animate, interval);
 
 
 function animate()
 {
-	context.clearRect(0,0,canvas.width, canvas.height);	
 	
+	context.clearRect(0,0,canvas.width, canvas.height);	
 
+//player	-------------------------------------------------------------------------------------------------------------
+	player.y += player.vy;
+
+	if(player.x < player.width/2)// this the bounderies
+	{
+		player.x = player.width/2
+		player.vx = -player.vx;
+		//player.color = "yellow";
+	}
+	if(player.x > canvas.width - player.width/2)// this the bounderies
+	{
+		player.x = canvas.width - player.width/2
+		player.vx = - player.vx;
+		//player.color = "pink";
+	}
+//-------------------------------------------------------------------------------------------------------------------
+
+//ball bonderaries----------------------------------------------------------------------------------------------------
+ball.x += ball.vx;
+
+	if(ball.x < ball.width/2)// this the bounderies
+	
+	{
+		ball.x = ball.width/2
+		ball.vx = -ball.vx;
+		ball.color = "red";
+	}
+	if(ball.x > canvas.width - ball.width/2)// this the bounderies
+	
+	{
+		ball.x = canvas.width - ball.width/2
+		ball.vx = - ball.vx;
+		ball.color = "green";
+	}
+
+//height boundary-----------------------------------------------------------------------------------------------------
+	ball.y += ball.vy;
+
+	if(ball.y < ball.height/2)// this the bounderies
+	{
+		ball.y = ball.height/2
+		ball.vy = -ball.vy;
+		ball.color = "yellow";
+	}
+	if(ball.y > canvas.height - ball.height/2)// this the bounderies
+	{
+		ball.y = canvas.height - ball.height/2
+		ball.vy = - ball.vy;
+		ball.color = "pink";
+	}
+//ball bounderaries----------------------------------------------------------------------------------------------------
+
+
+//player --------------------
 	if(d)
 	{	
 		player.vx +=  player.ax * player.force;
@@ -53,18 +104,47 @@ function animate()
 	{
 		player.vx += player.ax * -player.force;
 	}
-	if(w)
-	{	
-		player.vy += player.ay * -player.force;
-	}
-	if(s)
-	{
-		player.vy += player.ay * player.force;
-	}
 	//---------------------------------------------------------------------------------------
 	player.x += player.vx;
 	player.y += player.vy;
 	
+//friction
+	//--------------Apply friction to the Velocity X-----------------------------------------
+	player.vx *= frictionX;
+	//---------------------------------------------------------------------------------------
+	player.x += player.vx;
+//friction
+
+//showbounce
+player.vy *= frictionY;
+player.vx *= frictionX;
+
+ball.vy += gravity;
+
+player.x += player.vx;
+player.y += player.vy;
+//showbounce
+
+	//gravity
+	//--------------Apply Gravity to the Velocity Y-----------------------------------------
+	ball.vy += gravity;
+	player.y += player.vy;
+	//---------------------------------------------------------------------------------------
+	
+	player.vx *= frictionX;
+	player.x += player.vx;
+	//gravity
+//showpixel
+	player.vx *= frictionX;	
+	player.vy *= frictionY;
+	
+	//------Round the velocity before applying it to the position.--------------------------
+    //------This will keep the object from moving fractions of a pixel----------------------
+	//------This might not be noticeable now, but will help alot when things get complex----
+	player.y += Math.round(player.vy);
+	player.x += Math.round(player.vx);
+//showpixel
+
 	//Call just one of the functions below to view acceleration, friction, gravity and pixel lock.
 	
 	
