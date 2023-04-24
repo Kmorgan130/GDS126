@@ -5,12 +5,12 @@ var context;
 var timer;
 var interval = 1000/60;
 var player;
-var p1Wins = 0;
+var score = 0;
 var ball;
 
 //---------------Set Friction and Gravity-----------------
-var frictionX = .65;	
-var frictionY = .65;
+var frictionX = .97;	
+var frictionY = .97;
 var gravity = 1;
 //--------------------------------------------------------
 
@@ -25,14 +25,14 @@ var gravity = 1;
 	player.height = 40;
 	player.width = 250;
 	player.color= "#00ffff"
-	player.force = 2;
+	player.force = 1;
 //
 	ball = new GameObject();
 	ball.x = canvas.width/2;
 	ball.y = canvas.height/2;
 	radius: 40;
 	ball.color = "#ff00ff"
-	//ball.vy =+ gravity;
+	ball.force = 5;
 //
 	timer = setInterval(animate, interval);
 
@@ -89,7 +89,8 @@ ball.x += ball.vx;
 	if(ball.y > canvas.height - ball.height/2)// this the bounderies
 	{
 		ball.y = canvas.height - ball.height/2
-		ball.vy = - ball.vy;
+		ball.vy = - ball.vy * .5;
+		score = 0;
 		ball.color = "pink";
 	}
 //ball bounderaries----------------------------------------------------------------------------------------------------
@@ -125,6 +126,38 @@ player.x += player.vx;
 player.y += player.vy;
 //showbounce
 
+if (ball.hitTestObject(player))
+{
+		score = score + 1;
+
+        ball.y = player.y - player.height/2 - ball.height/2
+        ball.vy = -20;
+
+		if(ball.x < player.x - player.width/6)
+        {
+
+          ball.vx = -ball.force 
+        }
+
+        if(ball.x > player.x + player.width/6)
+        {
+
+          ball.vx = ball.force 
+        }
+
+
+        if(ball.x < player.x - player.width/3)
+        {
+
+          ball.vx = -ball.force * 5
+        }
+        if(ball.x > player.x + player.width/3)
+        {
+
+          ball.vx = ball.force  * 5
+        }
+}
+
 	//gravity
 	//--------------Apply Gravity to the Velocity Y-----------------------------------------
 	ball.vy += gravity;
@@ -154,13 +187,13 @@ player.y += player.vy;
 
 	context.fillStyle = "#555555"
     context.font = "16px Arial";
-    context.fillText(p1Wins, 130, 25);
+    context.fillText(score, 130, 25);
 
 	context.save();
 	context.strokeStyle = "black";
 	context.beginPath();
-	context.moveTo(canvas.width/2, 450);
-	context.lineTo(canvas.width/2, 750);
+	context.moveTo(ball.x, ball.y);
+	context.lineTo(player.x, player.y);
 	context.closePath();
 	context.lineWidth = 1;
 	context.stroke();
@@ -169,7 +202,7 @@ player.y += player.vy;
 	
 	player.drawRect();
 	ball.drawCircle();
-	p1Wins.fillText();
+	score.fillText();
 	line.drawLine();
 }
 
