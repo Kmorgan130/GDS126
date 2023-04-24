@@ -9,8 +9,8 @@ var score = 0;
 var ball;
 
 //---------------Set Friction and Gravity-----------------
-var frictionX = .97;	
-var frictionY = .97;
+var frictionX = .90;	
+var frictionY = .90;
 var gravity = 1;
 //--------------------------------------------------------
 
