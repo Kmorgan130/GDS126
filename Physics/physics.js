@@ -106,8 +106,7 @@ ball.x += ball.vx;
 		player.vx += player.ax * -player.force;
 	}
 	//---------------------------------------------------------------------------------------
-	player.x += player.vx;
-	player.y += player.vy;
+
 	
 //friction
 	//--------------Apply friction to the Velocity X-----------------------------------------
@@ -202,7 +201,6 @@ if (ball.hitTestObject(player))
 	
 	player.drawRect();
 	ball.drawCircle();
-	score.fillText();
 	line.drawLine();
 }
 
