@@ -38,7 +38,7 @@ var player;
 		platform3.height = 50;
 		platform3.y = platform2.y;
 		platform3.x = platform2.x ;
-		platform3.color = "#ff00ff";
+		//platform3.color = "#ff00ff";
 	
 	//This platform uses an object literal to define the properties
 	platform4 = new GameObject({width:300, height:50, x:platform1.x, y:platform3.y, color:"#ffff00"});
