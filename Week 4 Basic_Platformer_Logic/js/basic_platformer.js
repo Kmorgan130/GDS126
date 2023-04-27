@@ -14,7 +14,7 @@ var player;
 
 	//Instantiate platforms
 		platform0 = new GameObject();
-		platform0.width = 500;
+		platform0.width = 800;
 		platform0.y = player.y +player.height/2 +platform0.height/2;
 		platform0.color = "#66ff33";
 		
