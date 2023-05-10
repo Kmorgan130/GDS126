@@ -2,6 +2,7 @@ var w = false;
 var a = false;
 var s = false;
 var d = false;
+var space = false;
 
 
 document.addEventListener("keydown", press);
@@ -30,7 +31,7 @@ function press(e)
 	}
 	if(e.keyCode == 32)
 	{
-		spacebar = true;
+		space = true;
 	}
 }
 
@@ -57,6 +58,6 @@ function release(e)
 	}
 	if(e.keyCode == 32)
 	{
-		spacebar = false;
+		space = false;
 	}
 }
