@@ -24,15 +24,10 @@ var player;
 		//	1.Instantiate new GameObject and store it in each index of the particles array
 		//	2.set each particle's x property to a random number from 0 - the canvas.width 
 		//	3.set each particle's y property to a random number from 0 - the canvas.height
-		
-	var colors = [];
-
-colors[0] = "#ff0000";
-colors[1] = "#00ff00";
-colors[2] = "#0000ff";
-
 var amt = 12;	
 var particles = [];
+
+
 
 for(var i = 0; i < amt; i++)
 {
@@ -68,9 +63,9 @@ function animate()
 		
 		particles[i].vy += gravity;
 		particles[i].move();
-		//particles[i].drawRect();
+		particles[i].drawRect();
 	} 
-	particles.drawRect();
+	//particles.drawRect();
 	//----------------------------------------------------------------------------------------------------------------------
 }
 
