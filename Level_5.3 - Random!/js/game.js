@@ -17,28 +17,22 @@ var player;
 	//Declare an "amount" variable and set it to 12
 	
 	//Create an array called "particles" to store the particles
-	
+	var amount = 12;	
+	var particles = [];
 	//Create a for loop that loops the number of times specified by the "amount" variable
 
 		//Within the for loop do the following: 
 		//	1.Instantiate new GameObject and store it in each index of the particles array
 		//	2.set each particle's x property to a random number from 0 - the canvas.width 
 		//	3.set each particle's y property to a random number from 0 - the canvas.height
-var amt = 12;	
-var particles = [];
 
-
-
-for(var i = 0; i < amt; i++)
-{
-	particles[i] = new GameObject();
-	particles[i].x = Math.random() - canvas.width;
-	particles[i].y = Math.random() - canvas.height;
-	//particles[i].width = rand(5,20);
-	//particles[i].vy = rand(-40,40);
-	//particles[i].vx = rand(-10,10);
-	//particles[i].color = colors[Math.floor(rand(0,2.9))];
-}
+for(var i = 0; i < amount; i++)
+	{
+	var particle = new GameObject();
+	particle.x = Math.random() * canvas.width;
+	particle.y = Math.random() * canvas.height;
+	particles.push(particle);
+	}
 	//---------------------------------------------------------------------------------------------------------------
 	
 	var fX = .85;
@@ -57,8 +51,10 @@ function animate()
 	
 	//--------------------------------------Step 2: Draw Particles---------------------------------------------------------
 	//DrawRect()for each particle using a for loop.
+	
+
 	//The for loop should use the particles.length for its limit
-	for(var i = 0; i < amt; i++)
+	for(var i = 0; i < particles.length; i++)
 	{
 		
 		particles[i].vy += gravity;
