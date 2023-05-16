@@ -35,12 +35,18 @@ var gravity = 1;
 	player.force = 1;
 //
 	bullet = new GameObject();
-	//bullet.x = 10000;
+	bullet.x = 10000;
 	bullet.y = player.y;
 	bullet.color = "red";
 	bullet.height = 20;
 	bullet.width = 20;
 //
+
+platform2 = new GameObject();
+		platform2.width = 500;
+		platform2.x = canvas.height;
+		platform2.y = 600;
+		platform2.color = "green";
 	timer = setInterval(animate, interval);
 
 
@@ -133,7 +139,7 @@ player.y += player.vy;
 	
 	
 	bullet.move();
-
+	platform2.drawRect();
 	bullet.drawCircle();
 	player.drawRect();
 	
