@@ -7,6 +7,8 @@ var timer;
 var interval = 1000/60;
 var player;
 
+
+
     //Set Up the Canvas
     canvas = document.getElementById("canvas");
     context = canvas.getContext("2d");  
@@ -32,7 +34,7 @@ var player;
         platform1.height= 1000
         platform1.color = "blue";   
 
-		platform2 = new GameObject();
+        platform2 = new GameObject();
         platform2.width = 100;
         platform2.x = 500;
         platform2.y = 300;
@@ -57,12 +59,9 @@ function animate()
     
     //Move the Player to the right
 
-    if(w && player.canJump && player.vy ==0)
-    {
-        player.canJump = false;
-        player.vy += player.jumpHeight;
-        player.vx += gravity
-    }
+    if(w && player.canJump && player.vy === 0) {
+        handleJumpInput();
+      }
 
     if(a && !platform1.hitTestPoint(player.left()))
     {
@@ -79,6 +78,7 @@ function animate()
     player.vy *= fY;
     
     player.vy += gravity;
+    
     
     player.x += Math.round(player.vx);
     player.y += Math.round(player.vy);
@@ -98,6 +98,8 @@ function animate()
         player.vx = - player.vx;
         player.color = "pink";
     }
+    //
+    
 ///
     while(platform0.hitTestPoint(player.bottom()) && player.vy >=0)
     {
@@ -105,27 +107,30 @@ function animate()
         player.vy = 0;
         player.canJump = true;
     }
-    ////
-    while(platform1.hitTestPoint(player.right()) && player.vx >=0)
-    {
-        player.x--;
-        player.vx = 0;
-        
-    }
-
-	while(platform2.hitTestPoint(player.bottom()) && player.vy >=0)
+    //// need to jump on
+    //while(platform1.hitTestPoint(player.right()) && player.vx >=0)
+    //{
+    //    player.x--;
+    //    player.vx = 0;
+    //    player.canJump = true;
+   // }
+    //
+    
+    // need to jump on higher platform
+    while(platform2.hitTestPoint(player.bottom()) && player.vy >=0)
     {
         player.y--;
         player.vy = 0;
         player.canJump = true;
     }
+    //
     
     
-
+   
     //Update the Screen
     player.drawRect();
     platform0.drawRect();
     platform1.drawRect();
-	platform2.drawRect();
+    platform2.drawRect();
 
 }
