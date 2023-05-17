@@ -102,22 +102,7 @@ function animate()
 		player.vy = 0;
 		player.canJump = true;
 	}
-	while(platform0.hitTestPoint(player.left()) && player.vx <=0)
-	{
-		player.x++;
-		player.vx = 0;
-	}
-	while(platform0.hitTestPoint(player.right()) && player.vx >=0)
-	{
-		player.x--;
-		player.vx = 0;
-	}
-	while(platform0.hitTestPoint(player.top()) && player.vy <=0)
-	{
-		player.y++;
-		player.vy = 0;
-	}
-
+	
 	////// Green
 	while(platform2.hitTestPoint(player.bottom()) && player.vy >=0)
 	{
