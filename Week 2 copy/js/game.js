@@ -61,6 +61,7 @@ function animate()
     {
         player.canJump = false;
         player.vy += player.jumpHeight;
+        player.vx += gravity
     }
 
     if(a && !platform1.hitTestPoint(player.left()))
@@ -109,7 +110,9 @@ function animate()
     {
         player.x--;
         player.vx = 0;
+        
     }
+
 	while(platform2.hitTestPoint(player.bottom()) && player.vy >=0)
     {
         player.y--;
@@ -117,8 +120,6 @@ function animate()
         player.canJump = true;
     }
     
-    
-
     
 
     //Update the Screen
