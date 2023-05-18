@@ -22,6 +22,15 @@ var player;
 	
 	canvasTrigger = new GameObject({width:canvas.width, height:canvas.height});
 
+	var amount = 25;
+	var particles = [];
+	
+	for(var i = 0; i < amount; i++)
+	{
+		particles[i] = new GameObject({width:10, height:10, x:player.x, y:player.y, color:"#ffff00"});
+		
+	}
+
 	
 	
 	//friction
@@ -51,7 +60,11 @@ function animate()
 	//------------------------------------------------------INSTRUCTIONS-------------------------------------------------------
 	//-------------------------------------------------------------------------------------------------------------------------
 	//------------------------------------------Make the blue turret aim at the player-----------------------------------------
-	
+	if(bullet.hitTestObject(player))
+		{
+			//wait one second before calling the boom function
+			setTimeout(boom, 10);
+		}
 	
 	//--------------------------------------------------------------------------------------------------------------------------
 	//------------------------------------------------------END OF INSTRUCTIONS-------------------------------------------------
@@ -68,7 +81,13 @@ function animate()
 		bullet.vy = Math.sin(turret.angle * Math.PI/180) * 5;
 	}
 	
-	
+	for(var p = 0; p < particles.length; p++)
+	{	
+		particles[p].x += particles[p].vx;
+		particles[p].y += particles[p].vy;
+		particles[p].drawRect();
+		
+	}
 	
 	
 	
@@ -142,6 +161,16 @@ function point()
 		player.color = "green";
 	}
 }
+function boom()
+{
+		player.y = -100000
 
+		for(var p = 0; p < particles.length; p++)
+	{	
+		particles[p].vx += Math.random() * 20 - 10;
+		particles[p].vy += Math.random() * 20 - 10;
+		
+	}
+}
 
 

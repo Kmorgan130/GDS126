@@ -45,6 +45,7 @@ var player;
 	for(var i = 0; i < amount; i++)
 	{
 		particles[i] = new GameObject({width:10, height:10, x:platform[1].x, y:platform[1].y, color:"#ffff00"});
+		
 	}
 	//---------------------------------------------------------------------------------------------------------------
 	
@@ -91,7 +92,7 @@ function animate()
 	if(player.hitTestObject(platform[1]))
 		{
 			//wait one second before calling the boom function
-			setTimeout(boom, -100000);
+			setTimeout(boom, 1000);
 		}
 	//----------------------------------------------------------------------------------------------------------------------
 	
@@ -142,7 +143,13 @@ function animate()
 	
 	//--------------------------------------------------------Move and Draw particles-------------------------------------------
 	
-	
+	for(var p = 0; p < particles.length; p++)
+	{	
+		particles[p].x += particles[p].vx;
+		particles[p].y += particles[p].vy;
+		particles[p].drawRect();
+		
+	}
 	
 	//-------------------------------------------------------------------------------------------------------------------------
 }
@@ -155,11 +162,13 @@ function boom()
 		//	1.Change the platform[1]'s y position to -100000
 		//	2.Change each particles vx so that it is a random number between -10 and 10.
 		//	3.Change each particles vy so that it is a random number between -10 and 10.
+		platform[1].y = -100000
+
 		for(var p = 0; p < particles.length; p++)
 	{	
-		particles[p].vx += Math.random(-10,10)//.x += Math.random().vx;
-		particles[p].vy += Math.random(-10,10)//.y += Math.random().vy;
-		particles[p].drawRect();
+		particles[p].vx += Math.random() * 20 - 10;
+		particles[p].vy += Math.random() * 20 - 10;
+		
 	}
 }
 
