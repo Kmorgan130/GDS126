@@ -77,6 +77,10 @@ function GameObject(obj)
 	{
 		return {x:this.x , y:this.y + this.height/2}
 	}
+	this.right1 = function() 
+	{
+		return {x:this.x + this.width , y:this.y}
+	}
 	
 	this.hitTestObject = function(obj)
 	{

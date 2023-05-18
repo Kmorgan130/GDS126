@@ -6,13 +6,14 @@ var timer;
 //1000 ms or 1 second / FPS
 var interval = 1000/60;
 var player;
-
-
-
     //Set Up the Canvas
     canvas = document.getElementById("canvas");
     context = canvas.getContext("2d");  
-    
+
+    var debugPoint = new GameObject();
+debugPoint.width = 10;
+debugPoint.height = 10;
+debugPoint.color = `black`
     
     //Instantiate the Player
     player = new GameObject();
@@ -39,7 +40,7 @@ var player;
         platform2.x = 500;
         platform2.y = 300;
         platform2.height= 50
-        platform2.color = "blue";   
+        platform2.color = "red";   
 
     var fX = .85;
     var fY = .97;
@@ -59,9 +60,11 @@ function animate()
     
     //Move the Player to the right
 
-    if(w && player.canJump && player.vy === 0) {
-        handleJumpInput();
-      }
+    if(w && player.canJump && player.vy ==0)
+	{
+		player.canJump = false;
+		player.vy += player.jumpHeight;
+	}
 
     if(a && !platform1.hitTestPoint(player.left()))
     {
@@ -108,12 +111,11 @@ function animate()
         player.canJump = true;
     }
     //// need to jump on
-    //while(platform1.hitTestPoint(player.right()) && player.vx >=0)
-    //{
-    //    player.x--;
-    //    player.vx = 0;
-    //    player.canJump = true;
-   // }
+    while(platform1.hitTestPoint(player.right()) && player.vx >=0)
+    {
+        player.x --;
+    
+    }
     //
     
     // need to jump on higher platform
@@ -124,13 +126,27 @@ function animate()
         player.canJump = true;
     }
     //
-    
-    
+      debugPoint.color = `black;`
+    if(platform1.hitTestPoint(player.right1()))
+    {
+        debugPoint.color = `yellow`
+
+        if(w)
+        {
+        player.vx = -95;
+        player.vy = -15
+       
+        }
+    }
    
+    debugPoint.x = player.right1().x;
+    debugPoint.y = player.right1().y;
+
     //Update the Screen
     player.drawRect();
     platform0.drawRect();
     platform1.drawRect();
     platform2.drawRect();
+    debugPoint.drawRect();
 
 }
