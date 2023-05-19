@@ -60,7 +60,7 @@ function animate()
 	//------------------------------------------------------INSTRUCTIONS-------------------------------------------------------
 	//-------------------------------------------------------------------------------------------------------------------------
 	//------------------------------------------Make the blue turret aim at the player-----------------------------------------
-	if(bullet.hitTestObject(player))
+	if(bullet.hitTestPoint(player))
 		{
 			//wait one second before calling the boom function
 			setTimeout(boom, 10);
@@ -86,7 +86,6 @@ function animate()
 		particles[p].x += particles[p].vx;
 		particles[p].y += particles[p].vy;
 		particles[p].drawRect();
-		
 	}
 	
 	
@@ -136,6 +135,9 @@ function angularMovement()
 		player.angle+=2;
 	}
 
+	
+
+
 	//apply physics to velocity
 	player.vx *= fX;
 	player.vy *= fY;
@@ -160,6 +162,11 @@ function point()
 	{
 		player.color = "green";
 	}
+
+	for (var p = 0; p < particles.length; p++) {
+		particles[p].x += player.vx;
+		particles[p].y += player.vy;
+	  }
 }
 function boom()
 {
