@@ -5,24 +5,17 @@ var context;
 var timer;
 var interval = 1000/60;
 var player;
+var karen;
 
 
 var bullet = [];
 var canShoot = true;
-
-
-
-
-
 
 //---------------Set Friction and Gravity-----------------
 var frictionX = .90;	
 var frictionY = .90;
 var gravity = 1;
 //--------------------------------------------------------
-
-
-
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
 //
@@ -42,12 +35,13 @@ var gravity = 1;
 	bullet.width = 20;
 //
 
-platform2 = new GameObject();
-		platform2.width = 500;
-		platform2.x = canvas.height;
-		platform2.y = 600;
-		platform2.color = "green";
-	timer = setInterval(animate, interval);
+karen = new GameObject();
+karen.x = canvas.width/2;
+karen.y = canvas.height - 50;
+karen.height = 40;
+karen.width = 40;
+karen.color= "blue"
+karen.force = 1;
 
 
 function animate()
@@ -142,6 +136,7 @@ player.y += player.vy;
 	platform2.drawRect();
 	bullet.drawCircle();
 	player.drawRect();
+	karen.drawRect();
 	
 	
 	
