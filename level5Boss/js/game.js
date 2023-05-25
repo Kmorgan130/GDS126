@@ -1,5 +1,5 @@
 //Declare my variables
-
+// goal is to shoot karen "Yellow". only got it to function to shoot on the right hand side.
 var canvas;
 var context;
 var timer;
@@ -28,6 +28,7 @@ var player;
         karen = new GameObject();
         karen.height = 50;
         karen.width = 50;
+        karen.color = "yellow"
 
         platform0 = new GameObject();
         platform0.width = 1000;
