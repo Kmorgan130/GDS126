@@ -165,7 +165,6 @@ if(ball.hitTestObject(player))
           
           ball.vy = -5;
         }
-		
 	}
 // opponent
 
