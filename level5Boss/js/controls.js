@@ -5,6 +5,7 @@ var w = false;
 var s= false;
 var up = false;
 var down = false;
+var spacebar = false;
 
 //Add Event Listeners
 document.addEventListener("keydown", press);
@@ -40,6 +41,10 @@ function press(e)
 	{
 		down = true;
 	}
+	if(e.keyCode == 32)
+	{
+		spacebar = true;
+	}
 }
 
 function release(e)
@@ -70,5 +75,9 @@ function release(e)
 	if(e.keyCode == 40)
 	{
 		down = false;
+	}
+	if(e.keyCode == 32)
+	{
+		spacebar = false;
 	}
 }

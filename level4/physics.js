@@ -5,7 +5,7 @@ var context;
 var timer;
 var interval = 1000/60;
 var player;
-var karen;
+
 
 
 var bullet = [];
@@ -35,13 +35,7 @@ var gravity = 1;
 	bullet.width = 20;
 //
 
-karen = new GameObject();
-karen.x = canvas.width/2;
-karen.y = canvas.height - 50;
-karen.height = 40;
-karen.width = 40;
-karen.color= "blue"
-karen.force = 1;
+
 
 
 function animate()
@@ -136,7 +130,7 @@ player.y += player.vy;
 	platform2.drawRect();
 	bullet.drawCircle();
 	player.drawRect();
-	karen.drawRect();
+	
 	
 	
 	

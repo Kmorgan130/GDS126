@@ -31,8 +31,6 @@ var player;
 		
 	}
 
-	
-	
 	//friction
 	var fX = .80;
 	var fY = .80;
