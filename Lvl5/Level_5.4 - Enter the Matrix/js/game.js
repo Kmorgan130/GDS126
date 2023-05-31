@@ -46,7 +46,8 @@ function animate()
 	for(var p = 0; p < particles.length; p++)
 	{	
 		particles[p].x += particles[p].vx;
-		particles[p].y += particles[p].vy;
+		
+		particles[p].vy += Math.random() * 10 + 5;
 			
 		//-------------------------------------------------INSTRUCTIONS----------------------------------------------------------
 			//If a particle moves off the bottom of the screen do the following:
@@ -55,7 +56,12 @@ function animate()
 			//  3. reset its color randomly to one of the colors in the "colors" array
 			//     (Hint: The code to do this is already written above)
 		//-------------------------------------------------------------------------------------------------------------------------
-		
+	
+		if(particles.hitTestObject(canvas.height))
+		{
+			particles[p].y = -particles[p].height;
+		}
+
 		particles[p].drawRect();
 	}
 	
