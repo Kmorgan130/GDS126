@@ -46,8 +46,7 @@ function animate()
 	for(var p = 0; p < particles.length; p++)
 	{	
 		particles[p].x += particles[p].vx;
-		
-		particles[p].vy += Math.random() * 10 + 5;
+		particles[p].y += particles[p].vy;
 			
 		//-------------------------------------------------INSTRUCTIONS----------------------------------------------------------
 			//If a particle moves off the bottom of the screen do the following:
@@ -57,9 +56,10 @@ function animate()
 			//     (Hint: The code to do this is already written above)
 		//-------------------------------------------------------------------------------------------------------------------------
 	
-		if(particles.hitTestObject(canvas.height))
+		if(particles[p]>canvas.height)
 		{
-			particles[p].y = -particles[p].height;
+			particles[p].y = -particles.height;
+			particles[p].vy = Math.random() *15 + 5;
 		}
 
 		particles[p].drawRect();
