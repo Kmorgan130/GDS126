@@ -56,15 +56,16 @@ function animate()
 			//     (Hint: The code to do this is already written above)
 		//-------------------------------------------------------------------------------------------------------------------------
 	
-		if(particles[p]>canvas.height)
+		if(particles[p].y >canvas.height)
 		{
-			particles[p].y = -particles.height;
+			particles[p].y = -10;
 			particles[p].vy = Math.random() *15 + 5;
 		}
 
 		particles[p].drawRect();
 	}
 	
+
 
 }
 
